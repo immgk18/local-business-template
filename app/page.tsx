@@ -13,7 +13,7 @@ import {
   X,
   ChevronDown,
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const menuItems = [
   { name: "Signature Burger", category: "Best seller", desc: "Smoky grilled patty, house sauce, crisp lettuce & toasted brioche.", price: "₹249", image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1000&q=90" },
@@ -35,12 +35,12 @@ const highlights = [
 ];
 
 export default function Home() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);\n  const [scrolled, setScrolled] = useState(false);\n  useEffect(() => { const onScroll = () => setScrolled(window.scrollY > 30); window.addEventListener("scroll", onScroll); return () => window.removeEventListener("scroll", onScroll); }, []);
 
   return (
     <main className="overflow-hidden bg-[#f4efe7]">
-      <header className="fixed inset-x-0 top-0 z-50">
-        <div className="mx-auto mt-4 flex max-w-7xl items-center justify-between rounded-full border border-white/10 bg-[#11110f]/90 px-5 py-3 text-white shadow-2xl shadow-black/10 backdrop-blur-xl lg:px-6">
+      <motion.header initial={{ y: -30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.7 }} className="fixed inset-x-0 top-0 z-50">
+        <div className={`mx-auto mt-4 flex max-w-7xl items-center justify-between rounded-full border px-5 py-3 text-white backdrop-blur-xl transition-all duration-500 lg:px-6 ${scrolled ? "border-white/15 bg-[#11110f]/95 shadow-2xl shadow-black/20" : "border-white/10 bg-[#11110f]/70"}`}>
           <a href="#" className="font-display text-xl font-bold tracking-tight">
             URBAN<span className="text-[#e6a15d]">.</span>
           </a>
@@ -67,13 +67,13 @@ export default function Home() {
             </div>
           </div>
         )}
-      </header>
+      </motion.header>
 
       <section className="relative flex min-h-[780px] items-end px-5 pb-14 pt-32 text-white lg:min-h-screen lg:px-8 lg:pb-20">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2200&q=90')] bg-cover bg-center" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/30" />
-        <div className="relative mx-auto w-full max-w-7xl">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/30" />\n        <motion.div animate={{ scale: [1, 1.08, 1], opacity: [0.15, 0.3, 0.15] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} className="absolute -left-24 top-1/4 h-80 w-80 rounded-full bg-[#e6a15d] blur-[120px]" />\n        <motion.div animate={{ x: [0, 80, 0], y: [0, -30, 0] }} transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }} className="absolute right-0 top-1/3 h-72 w-72 rounded-full bg-[#8b5e3c] blur-[120px] opacity-25" />
+        <div className="relative mx-auto w-full max-w-7xl">\n          <motion.div animate={{ rotate: 360 }} transition={{ duration: 30, repeat: Infinity, ease: "linear" }} className="pointer-events-none absolute -right-10 -top-20 hidden h-64 w-64 rounded-full border border-white/10 lg:block" />
           <motion.div initial={{ opacity: 0, y: 35 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <div className="mb-6 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.32em] text-white/70">
               <span className="h-px w-12 bg-[#e6a15d]" /> Ambattur · Chennai
@@ -96,7 +96,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="mx-auto grid max-w-7xl gap-12 px-5 py-24 lg:grid-cols-[1.1fr_.9fr] lg:px-8 lg:py-36">
+      <motion.section id="about" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8 }} className="mx-auto grid max-w-7xl gap-12 px-5 py-24 lg:grid-cols-[1.1fr_.9fr] lg:px-8 lg:py-36">
         <div>
           <p className="eyebrow">Our story</p>
           <h2 className="mt-5 max-w-3xl font-display text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl">
@@ -115,8 +115,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="menu" className="bg-[#11110f] px-5 py-24 text-white lg:px-8 lg:py-32">
-        <div className="mx-auto max-w-7xl">
+      <section id="menu" className="relative overflow-hidden bg-[#11110f] px-5 py-24 text-white lg:px-8 lg:py-32">
+        <motion.div animate={{ x: ["-20%", "20%", "-20%"] }} transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute -top-32 left-1/2 h-64 w-[70%] -translate-x-1/2 rounded-full bg-[#e6a15d]/10 blur-[100px]" />\n        <div className="relative mx-auto max-w-7xl">
           <div className="mb-12 flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
             <div>
               <p className="eyebrow text-[#e6a15d]">Customer favourites</p>
@@ -144,7 +144,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="gallery" className="px-5 py-24 lg:px-8 lg:py-36">
+      <motion.section id="gallery" initial={{ opacity: 0, y: 35 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.8 }} id="gallery" className="px-5 py-24 lg:px-8 lg:py-36">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
             <div>
@@ -163,8 +163,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#e6a15d] px-5 py-24 text-[#17130f] lg:px-8 lg:py-28">
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-3">
+      <section className="relative overflow-hidden bg-[#e6a15d] px-5 py-24 text-[#17130f] lg:px-8 lg:py-28">
+        <motion.div animate={{ rotate: [0, 3, 0, -3, 0] }} transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full border border-black/10" />\n        <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-3">
           {highlights.map(([num, title, text]) => (
             <div key={num} className="border-t border-black/20 pt-5">
               <span className="text-xs font-bold tracking-widest opacity-55">{num}</span>
@@ -175,7 +175,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="bg-[#f4efe7] px-5 py-24 lg:px-8 lg:py-36">
+      <motion.section id="contact" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} id="contact" className="bg-[#f4efe7] px-5 py-24 lg:px-8 lg:py-36">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.2fr_.8fr]">
           <div>
             <p className="eyebrow">Find us</p>
