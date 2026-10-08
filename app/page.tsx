@@ -35,7 +35,9 @@ const highlights = [
 ];
 
 export default function Home() {
-  const [open, setOpen] = useState(false);\n  const [scrolled, setScrolled] = useState(false);\n  useEffect(() => { const onScroll = () => setScrolled(window.scrollY > 30); window.addEventListener("scroll", onScroll); return () => window.removeEventListener("scroll", onScroll); }, []);
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => { const onScroll = () => setScrolled(window.scrollY > 30); window.addEventListener("scroll", onScroll); return () => window.removeEventListener("scroll", onScroll); }, []);
 
   return (
     <main className="overflow-hidden bg-[#f4efe7]">
@@ -72,8 +74,11 @@ export default function Home() {
       <section className="relative flex min-h-[780px] items-end px-5 pb-14 pt-32 text-white lg:min-h-screen lg:px-8 lg:pb-20">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2200&q=90')] bg-cover bg-center" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/30" />\n        <motion.div animate={{ scale: [1, 1.08, 1], opacity: [0.15, 0.3, 0.15] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} className="absolute -left-24 top-1/4 h-80 w-80 rounded-full bg-[#e6a15d] blur-[120px]" />\n        <motion.div animate={{ x: [0, 80, 0], y: [0, -30, 0] }} transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }} className="absolute right-0 top-1/3 h-72 w-72 rounded-full bg-[#8b5e3c] blur-[120px] opacity-25" />
-        <div className="relative mx-auto w-full max-w-7xl">\n          <motion.div animate={{ rotate: 360 }} transition={{ duration: 30, repeat: Infinity, ease: "linear" }} className="pointer-events-none absolute -right-10 -top-20 hidden h-64 w-64 rounded-full border border-white/10 lg:block" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/30" />
+        <motion.div animate={{ scale: [1, 1.08, 1], opacity: [0.15, 0.3, 0.15] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} className="absolute -left-24 top-1/4 h-80 w-80 rounded-full bg-[#e6a15d] blur-[120px]" />
+        <motion.div animate={{ x: [0, 80, 0], y: [0, -30, 0] }} transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }} className="absolute right-0 top-1/3 h-72 w-72 rounded-full bg-[#8b5e3c] blur-[120px] opacity-25" />
+        <div className="relative mx-auto w-full max-w-7xl">
+          <motion.div animate={{ rotate: 360 }} transition={{ duration: 30, repeat: Infinity, ease: "linear" }} className="pointer-events-none absolute -right-10 -top-20 hidden h-64 w-64 rounded-full border border-white/10 lg:block" />
           <motion.div initial={{ opacity: 0, y: 35 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <div className="mb-6 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.32em] text-white/70">
               <span className="h-px w-12 bg-[#e6a15d]" /> Ambattur · Chennai
@@ -116,7 +121,8 @@ export default function Home() {
       </section>
 
       <section id="menu" className="relative overflow-hidden bg-[#11110f] px-5 py-24 text-white lg:px-8 lg:py-32">
-        <motion.div animate={{ x: ["-20%", "20%", "-20%"] }} transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute -top-32 left-1/2 h-64 w-[70%] -translate-x-1/2 rounded-full bg-[#e6a15d]/10 blur-[100px]" />\n        <div className="relative mx-auto max-w-7xl">
+        <motion.div animate={{ x: ["-20%", "20%", "-20%"] }} transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute -top-32 left-1/2 h-64 w-[70%] -translate-x-1/2 rounded-full bg-[#e6a15d]/10 blur-[100px]" />
+        <div className="relative mx-auto max-w-7xl">
           <div className="mb-12 flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
             <div>
               <p className="eyebrow text-[#e6a15d]">Customer favourites</p>
@@ -144,7 +150,7 @@ export default function Home() {
         </div>
       </section>
 
-      <motion.section id="gallery" initial={{ opacity: 0, y: 35 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.8 }} id="gallery" className="px-5 py-24 lg:px-8 lg:py-36">
+      <motion.section id="gallery" initial={{ opacity: 0, y: 35 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.8 }} className="px-5 py-24 lg:px-8 lg:py-36">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
             <div>
@@ -164,7 +170,8 @@ export default function Home() {
       </section>
 
       <section className="relative overflow-hidden bg-[#e6a15d] px-5 py-24 text-[#17130f] lg:px-8 lg:py-28">
-        <motion.div animate={{ rotate: [0, 3, 0, -3, 0] }} transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full border border-black/10" />\n        <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-3">
+        <motion.div animate={{ rotate: [0, 3, 0, -3, 0] }} transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full border border-black/10" />
+        <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-3">
           {highlights.map(([num, title, text]) => (
             <div key={num} className="border-t border-black/20 pt-5">
               <span className="text-xs font-bold tracking-widest opacity-55">{num}</span>
@@ -175,7 +182,7 @@ export default function Home() {
         </div>
       </section>
 
-      <motion.section id="contact" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} id="contact" className="bg-[#f4efe7] px-5 py-24 lg:px-8 lg:py-36">
+      <motion.section id="contact" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="bg-[#f4efe7] px-5 py-24 lg:px-8 lg:py-36">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.2fr_.8fr]">
           <div>
             <p className="eyebrow">Find us</p>
