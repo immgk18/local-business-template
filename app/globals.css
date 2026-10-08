@@ -1,0 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
+@import "tailwindcss";
+:root{--cream:#f7f1e7;--ink:#171512;--muted:#756e64;--accent:#c56a3a}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:"DM Sans",sans-serif}::selection{background:#c56a3a;color:white}.font-display{font-family:"Playfair Display",serif}
