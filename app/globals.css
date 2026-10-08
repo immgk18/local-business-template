@@ -1,4 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
 @import "tailwindcss";
-:root{--cream:#f7f1e7;--ink:#171512;--muted:#756e64;--accent:#c56a3a}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:"DM Sans",sans-serif}::selection{background:#c56a3a;color:white}.font-display{font-family:"Playfair Display",serif}
+
+:root{--cream:#f4efe7;--ink:#17130f;--muted:#71695e;--accent:#e6a15d}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:"DM Sans",sans-serif;-webkit-font-smoothing:antialiased}
+::selection{background:var(--accent);color:var(--ink)}
+.font-display{font-family:"Playfair Display",serif}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:#c98248}
+a{transition:color .2s ease,background-color .2s ease,transform .2s ease}
+img{display:block}
